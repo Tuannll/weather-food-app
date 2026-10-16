@@ -9,6 +9,7 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![TanStack Query](https://img.shields.io/badge/TanStack%20Query-5-FF4154?style=flat-square&logo=reactquery&logoColor=white)](https://tanstack.com/query)
+[![CI](https://github.com/Tuannll/weather-food-app/actions/workflows/ci.yml/badge.svg)](https://github.com/Tuannll/weather-food-app/actions/workflows/ci.yml)
 
 [Quick Start](#quick-start) · [Tính năng](#tính-năng) · [Kiến trúc](#kiến-trúc) · [Kiểm tra](#kiểm-tra)
 
@@ -150,6 +151,8 @@ Test hiện có kiểm tra:
 - Parse Mock Mode và OpenWeather API key.
 - Map response OpenWeatherMap: mưa, lạnh, nhiều mây, fallback.
 - Tra món ăn hợp lệ và route món ăn không tồn tại.
+
+GitHub Actions chạy `npm ci`, `npm run typecheck`, `npm test` trên mọi push và Pull Request vào `main`.
 
 ### Checklist demo
 
