@@ -3,7 +3,7 @@ import { RouteProp } from '@react-navigation/native';
 
 export type RootStackParamList = {
   Home: undefined;
-  FoodDetail: undefined;
+  FoodDetail: { foodName: string };
   Settings: undefined;
 };
 

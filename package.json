@@ -6,7 +6,9 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "typecheck": "tsc --noEmit",
+    "test": "node --no-warnings --experimental-strip-types --test src/config/env.test.ts src/utils/weatherMapper.test.ts src/utils/foodCatalog.test.ts"
   },
   "dependencies": {
     "@react-navigation/native": "^7.2.2",

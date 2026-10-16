@@ -9,7 +9,6 @@
 
 import { Alert, Linking, Platform } from 'react-native';
 import * as Location from 'expo-location';
-import * as Device from 'expo-device';
 
 // ─── Types ──────────────────────────────────────────────────────────
 
@@ -64,33 +63,13 @@ function showPermissionDeniedAlert(): void {
  * Xin cấp quyền vị trí foreground.
  *
  * Flow:
- * 1. Kiểm tra thiết bị thực (Android Emulator không hỗ trợ trên Snack).
- * 2. Gọi `Location.requestForegroundPermissionsAsync()`.
- * 3. Nếu `status === 'granted'` → trả về `{ granted: true }`.
- * 4. Nếu bị từ chối → hiển thị Alert với nút "Mở Cài đặt" và trả về `{ granted: false }`.
+ * 1. Gọi `Location.requestForegroundPermissionsAsync()`.
+ * 2. Nếu `status === 'granted'` → trả về `{ granted: true }`.
+ * 3. Nếu bị từ chối → hiển thị Alert với nút "Mở Cài đặt" và trả về `{ granted: false }`.
  *
  * @returns Promise<LocationPermissionResult>
- *
- * @example
- * ```tsx
- * const { granted } = await requestLocationPermission();
- * if (granted) {
- *   const location = await Location.getCurrentPositionAsync({});
- *   console.log(location);
- * }
- * ```
  */
 export async function requestLocationPermission(): Promise<LocationPermissionResult> {
-  // Kiểm tra Android Emulator (không phải thiết bị thực)
-  if (Platform.OS === 'android' && !Device.isDevice) {
-    const errorMessage =
-      'Quyền vị trí không hoạt động trên Android Emulator. Hãy thử trên thiết bị thật.';
-
-    Alert.alert('Không hỗ trợ', errorMessage);
-
-    return { granted: false, errorMessage };
-  }
-
   try {
     const { status } = await Location.requestForegroundPermissionsAsync();
 
